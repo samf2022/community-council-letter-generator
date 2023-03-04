@@ -1,5 +1,12 @@
+import { PDFViewer } from "@react-pdf/renderer";
+import MyDocument from "./components/MyDocument";
+
 function App() {
-  return <div className="App">Hello, World!</div>;
+  return (
+    <PDFViewer>
+      <MyDocument />
+    </PDFViewer>
+  );
 }
 
 export default App;

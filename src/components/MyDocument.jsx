@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     margin: 50,
     marginBottom: 20,
-    fontSize: 14,
+    fontSize: "14px",
   },
   logo: {
     marginTop: 20,
@@ -21,19 +21,26 @@ const styles = StyleSheet.create({
   },
   letterTitle: {
     textAlign: "center",
-    fontSize: 12,
+    fontSize: "12px",
   },
   section: {
     margin: 10,
     padding: 20,
     flexGrow: 1,
   },
+  mainText: {
+    lineHeight: 1.5,
+    marginRight: "3cm",
+    marginLeft: "3.5cm",
+    fontSize: "12px",
+    textAlign: "justify",
+  },
 });
 
 // Create Document Component
 const MyDocument = () => (
   <Document>
-    <Page size="LETTER" style={styles.page}>
+    <Page size="A4" style={styles.page}>
       <View style={styles.header}>
         <Text>República Bolivariana de Venezuela</Text>
         <Text>Municipio Bermúdez – Parroquia Santa Catalina Del Edo.Sucre</Text>
@@ -43,8 +50,20 @@ const MyDocument = () => (
       <View style={styles.letterTitle}>
         <Text>CONSTANCIA DE RESIDENCIA</Text>
       </View>
-      <View style={styles.section}>
-        <Text>Trext</Text>
+      <View style={styles.mainText}>
+        <Text>
+          Nosotras, FRIDENNYS CAROLINA FERMIN OLIVEROS, MORELLA DEL CARMEN FIGUERA VALDEZ y GRACIELA SANCHEZ,
+          venezolanas, mayores de edad, hábiles en derecho, titulares de las Cédulas de Identidad Nº. 16.842.708,
+          4.935.094 y 5.880.762, respectivamente, domiciliadas en el Sector “9 de Abril”, aledaño a la sede de
+          Automotriz Oriental,C.A (Autorica), vía Carúpano-San José, parroquia Santa Catalina, municipio Bermúdez del
+          estado Sucre; en nuestra condición de Voceras del Consejo Comunal del citado Sector, hacemos constar que
+          conocemos de vista, trato y comunicación desde hace más de veinte (20) años, al ciudadano ELIOMAR JOSÉ ROMERO
+          ROMERO, venezolano, mayor de edad, soltero, militar retirado, hábil en derecho, titular de la Cédula de
+          Identidad No.17.218.227 y domiciliado en el Callejón 9 de Abril, casa s/n de nuestro Sector y por el
+          conocimiento que tenemos de él damos fe de que es un ciudadano de BUENA CONDUCTA. Constancia que expedimos a
+          solicitud de parte interesada en Carúpano, a los veintiún días del mes de enero de dos mil veintitrés.
+          (21-01-2023).
+        </Text>
       </View>
     </Page>
   </Document>

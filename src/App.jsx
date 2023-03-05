@@ -3,7 +3,7 @@ import MyDocument from "./components/MyDocument";
 
 function App() {
   return (
-    <PDFViewer className="mx-auto" width="50%">
+    <PDFViewer className="mx-auto" width="70%">
       <MyDocument />
     </PDFViewer>
   );

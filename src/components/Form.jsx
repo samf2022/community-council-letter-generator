@@ -25,7 +25,7 @@ const Form = ({ onSubmit }) => {
   };
   return (
     <div className="mt-5">
-      <h2 className="text-center font-serif text-4xl">Generador de constancias de residencia</h2>
+      <h2 className="text-center font-serif text-4xl">Ingrese sus datos</h2>
       <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center">
         <div className="inputs">
           <input
@@ -44,6 +44,10 @@ const Form = ({ onSubmit }) => {
             required
             placeholder="Cédula"
           />
+          <select className="ml-3 p-1" name="" id="">
+            <option value="female">Mujer</option>
+            <option value="male">Hombre</option>
+          </select>
         </div>
         <button type="submit" className="px-4 p-2  font-bold bg-red-300 rounded m-4">
           Generar Constancia

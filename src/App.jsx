@@ -15,9 +15,10 @@ function App() {
 
   return (
     <div className="bg-slate-300 p-5">
+      <h2 className="text-center font-serif text-4xl">Generador de constancias de residencia</h2>
       <Description />
       <Form onSubmit={handleSubmit} />
-      <PDFViewer className="mx-auto mt-48" height="750px" width="70%">
+      <PDFViewer className="mx-auto mt-5" height="750px" width="70%">
         <MyDocument input1={data.input1} input2={formattedNumber} />
       </PDFViewer>
     </div>

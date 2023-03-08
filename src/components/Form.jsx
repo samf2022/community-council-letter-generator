@@ -24,15 +24,16 @@ const Form = ({ onSubmit }) => {
     setInput2("");
   };
   return (
-    <>
-      <h2>Ingrese sus datos</h2>
+    <div className="mt-5">
+      <h2 className="text-center font-serif text-4xl">Generador de constancias de residencia</h2>
       <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center">
         <div className="inputs">
           <input
             value={input1}
             onChange={handleInputChange1}
-            className="text-center border rounded p-1"
+            className="text-center border rounded p-1 mt-3"
             type="text"
+            required
             placeholder="Nombre"
           />
           <input
@@ -40,14 +41,15 @@ const Form = ({ onSubmit }) => {
             onChange={handleInputChange2}
             className="text-center border rounded ml-3 p-1"
             type="text"
+            required
             placeholder="Cédula"
           />
         </div>
-        <button type="submit" className="p-1 bg-red-300 rounded m-4">
+        <button type="submit" className="px-4 p-2  font-bold bg-red-300 rounded m-4">
           Generar Constancia
         </button>
       </form>
-    </>
+    </div>
   );
 };
 

@@ -1,66 +1,10 @@
 import React from "react";
 import { Page, Text, View, Image, Document, StyleSheet } from "@react-pdf/renderer";
 import logo from "../assets/community-council-logo.png";
-
-const months = [
-  "enero",
-  "febrero",
-  "marzo",
-  "abril",
-  "mayo",
-  "junio",
-  "julio",
-  "agosto",
-  "septiembre",
-  "octubre",
-  "noviembre",
-  "diciembre",
-];
-
-const days = [
-  "pirate",
-  "primer",
-  "dos",
-  "tres",
-  "cuatro",
-  "cinco",
-  "seis",
-  "siete",
-  "ocho",
-  "nueve",
-  "diez",
-  "once",
-  "doce",
-  "trece",
-  "catorce",
-  "quince",
-  "dieciséis",
-  "diecisiete",
-  "dieciocho",
-  "diecinueve",
-  "veinte",
-  "veintiun",
-  "veintidós",
-  "veintitrés",
-  "veinticuatro",
-  "veinticinco",
-  "veintiséis",
-  "veintisiete",
-  "veintiocho",
-  "veintinueve",
-  "treinta",
-  "treintaiun",
-];
+import getDateInfo from "../utils/getDateInfo";
 
 const currentDate = new Date();
-const year = currentDate.getFullYear();
-const day = currentDate.getDate() < 10 ? "0" + currentDate.getDate() : currentDate.getDate();
-const month = currentDate.getMonth() + 1 < 10 ? "0" + (currentDate.getMonth() + 1) : currentDate.getMonth() + 1;
-const wordMonth = months[currentDate.getMonth()];
-const wordDay = days[currentDate.getDate()];
-
-console.log(`El día de hoy es ${day}/${month}/${year}`);
-console.log(`El día de hoy es ${wordDay}/${wordMonth}/${year}`);
+const { day, month, year, wordDay, wordMonth } = getDateInfo(currentDate);
 
 const styles = StyleSheet.create({
   page: {

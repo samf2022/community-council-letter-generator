@@ -3,6 +3,7 @@ import { React, useState } from "react";
 const Form = ({ onSubmit }) => {
   const [name, setName] = useState("");
   const [document, setDocument] = useState("");
+  const [sex, setSex] = useState("female");
 
   const handleInputChange1 = ({ target }) => {
     const value = target.value.toUpperCase();
@@ -18,16 +19,22 @@ const Form = ({ onSubmit }) => {
     }
   };
 
+  const handleSelectChange = (event) => {
+    setSex(event.target.value);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Enviar los datos al componente padre
     onSubmit({
       name,
       document,
+      sex,
     });
     // Reiniciar los inputs
     setName("");
     setDocument("");
+    setSex("female");
   };
   return (
     <div className="mt-5">
@@ -50,7 +57,7 @@ const Form = ({ onSubmit }) => {
             required
             placeholder="Cédula"
           />
-          <select className="ml-3 p-1" name="" id="">
+          <select className="ml-3 p-1" name="sex" value={sex} onChange={handleSelectChange}>
             <option value="female">Mujer</option>
             <option value="male">Hombre</option>
           </select>

@@ -11,7 +11,7 @@ function App() {
     setData(values);
   };
 
-  const formattedNumber = Number(data.input2).toLocaleString("en-US");
+  const formattedNumber = Number(data.document).toLocaleString("en-US");
 
   return (
     <div className="bg-slate-300 p-5">
@@ -19,7 +19,7 @@ function App() {
       <Description />
       <Form onSubmit={handleSubmit} />
       <PDFViewer className="mx-auto mt-5" height="750px" width="70%">
-        <MyDocument input1={data.input1} input2={formattedNumber} />
+        <MyDocument name={data.name} document={formattedNumber} />
       </PDFViewer>
     </div>
   );

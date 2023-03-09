@@ -1,27 +1,33 @@
 import { React, useState } from "react";
 
 const Form = ({ onSubmit }) => {
-  const [input1, setInput1] = useState("");
-  const [input2, setInput2] = useState("");
+  const [name, setName] = useState("");
+  const [document, setDocument] = useState("");
 
-  const handleInputChange1 = (event) => {
-    setInput1(event.target.value);
+  const handleInputChange1 = ({ target }) => {
+    const value = target.value.toUpperCase();
+    setName(value);
   };
 
-  const handleInputChange2 = (event) => {
-    setInput2(event.target.value);
+  const handleInputChange2 = ({ target }) => {
+    const value = target.value;
+    const pattern = /^[0-9]*$/;
+
+    if (pattern.test(value)) {
+      setDocument(value);
+    }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Enviar los datos al componente padre
     onSubmit({
-      input1,
-      input2,
+      name,
+      document,
     });
     // Reiniciar los inputs
-    setInput1("");
-    setInput2("");
+    setName("");
+    setDocument("");
   };
   return (
     <div className="mt-5">
@@ -29,7 +35,7 @@ const Form = ({ onSubmit }) => {
       <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center">
         <div className="inputs">
           <input
-            value={input1}
+            value={name}
             onChange={handleInputChange1}
             className="text-center border rounded p-1 mt-3"
             type="text"
@@ -37,7 +43,7 @@ const Form = ({ onSubmit }) => {
             placeholder="Nombre"
           />
           <input
-            value={input2}
+            value={document}
             onChange={handleInputChange2}
             className="text-center border rounded ml-3 p-1"
             type="text"

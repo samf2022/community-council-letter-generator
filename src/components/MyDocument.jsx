@@ -2,7 +2,6 @@ import React from "react";
 import { Page, Text, View, Image, Document, StyleSheet } from "@react-pdf/renderer";
 import logo from "../assets/community-council-logo.png";
 
-// Create styles
 const styles = StyleSheet.create({
   page: {
     backgroundColor: "white",
@@ -37,8 +36,7 @@ const styles = StyleSheet.create({
   },
 });
 
-// Create Document Component
-const MyDocument = ({ input1, input2 }) => (
+const MyDocument = ({ name, document }) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.header}>
@@ -57,10 +55,10 @@ const MyDocument = ({ input1, input2 }) => (
           4.935.094 y 5.880.762, respectivamente, domiciliadas en el Sector “9 de Abril”, aledaño a la sede de
           Automotriz Oriental,C.A (Autorica), vía Carúpano-San José, parroquia Santa Catalina, municipio Bermúdez del
           estado Sucre; en nuestra condición de Voceras del Consejo Comunal del citado Sector, hacemos constar que
-          conocemos de vista, trato y comunicación desde hace más de veinte (20) años, al ciudadano {input1} ,
-          venezolano, mayor de edad, soltero, militar retirado, hábil en derecho, titular de la Cédula de Identidad No.
-          {input2} y domiciliado en el Callejón 9 de Abril, casa s/n de nuestro Sector y por el conocimiento que tenemos
-          de él damos fe de que es un ciudadano de BUENA CONDUCTA. Constancia que expedimos a solicitud de parte
+          conocemos de vista, trato y comunicación desde hace más de veinte (20) años, al ciudadano {name} , venezolano,
+          mayor de edad, soltero, militar retirado, hábil en derecho, titular de la Cédula de Identidad No.
+          {document} y domiciliado en el Callejón 9 de Abril, casa s/n de nuestro Sector y por el conocimiento que
+          tenemos de él damos fe de que es un ciudadano de BUENA CONDUCTA. Constancia que expedimos a solicitud de parte
           interesada en Carúpano, a los veintiún días del mes de enero de dos mil veintitrés. (21-01-2023).
         </Text>
       </View>

@@ -19,7 +19,7 @@ function App() {
       <Description />
       <Form onSubmit={handleSubmit} />
       <PDFViewer className="mx-auto mt-5" height="750px" width="70%">
-        <MyDocument name={data.name} document={formattedNumber} />
+        <MyDocument name={data.name} document={formattedNumber} sex={data.sex} />
       </PDFViewer>
     </div>
   );

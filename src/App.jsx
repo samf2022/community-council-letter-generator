@@ -22,8 +22,8 @@ function App() {
   return (
     <div className="">
       {isModalOpen && (
-        <Modal onClose={onCloseModal}>
-          <Description />
+        <Modal>
+          <Description onClose={onCloseModal} />
         </Modal>
       )}
       <h2 className="text-center font-serif text-4xl">Generador de constancias de residencia</h2>

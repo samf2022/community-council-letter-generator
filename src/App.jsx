@@ -20,12 +20,11 @@ function App() {
   const formattedNumber = Number(data.document).toLocaleString("en-US");
 
   return (
-    <div className="">
-      {isModalOpen && (
-        <Modal>
-          <Description onClose={onCloseModal} />
-        </Modal>
-      )}
+    // The onClick event on the parent div is to close the modal when clicking anywhere on the page.
+    <div onClick={onCloseModal}>
+      <Modal isOpen={isModalOpen}>
+        <Description onClose={onCloseModal} />
+      </Modal>
       <h2 className="text-center font-serif text-4xl">Generador de constancias de residencia</h2>
 
       <Form onSubmit={handleSubmit} />

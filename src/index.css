@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*CSS for animation of the modal from top to bottom.*/
+
+.slide-down {
+  animation-name: slide-down;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}

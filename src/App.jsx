@@ -32,7 +32,7 @@ function App() {
         <MyDocument
           name={data.name}
           document={formattedNumber}
-          sex={data.sex}
+          gender={data.gender}
           occupation={data.occupation}
           isOld={data.isOld}
         />

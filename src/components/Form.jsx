@@ -4,8 +4,8 @@ const Form = ({ onSubmit }) => {
   const [name, setName] = useState("");
   const [document, setDocument] = useState("");
   const [occupation, setOccupation] = useState("");
-  const [isOld, setIsOld] = useState(false);
-  const [sex, setSex] = useState("female");
+  const [isOld, setIsOld] = useState("");
+  const [gender, setGender] = useState("");
 
   const handleInputChange1 = ({ target }) => {
     const value = target.value.toUpperCase();
@@ -14,11 +14,8 @@ const Form = ({ onSubmit }) => {
 
   const handleInputChange2 = ({ target }) => {
     const value = target.value;
-    const pattern = /^[0-9]*$/;
 
-    if (pattern.test(value)) {
-      setDocument(value);
-    }
+    setDocument(value);
   };
 
   const handleInputChange3 = ({ target }) => {
@@ -26,21 +23,29 @@ const Form = ({ onSubmit }) => {
     setOccupation(value);
   };
 
-  const handleInputChange4 = () => {
-    setIsOld(() => !isOld);
+  const handleInputChange4 = (value) => {
+    setIsOld(value);
   };
 
-  const handleSelectChange = (event) => {
-    setSex(event.target.value);
+  const handleSelectChange = (value) => {
+    setGender(value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (!gender) {
+      alert("Por favor, seleccione su género.");
+    }
+
+    if (!isOld) {
+      alert("Por favor, indique si es mayor de edad o no.");
+    }
     // Enviar los datos al componente padre
     onSubmit({
       name,
       document,
-      sex,
+      gender,
       occupation,
       isOld,
     });
@@ -48,53 +53,107 @@ const Form = ({ onSubmit }) => {
     setName("");
     setDocument("");
     setOccupation("");
-    setSex("female");
-    setIsOld(false);
+    setGender("");
+    setIsOld("");
   };
   return (
-    <div className="mt-5 bg-[#6b7be7f5] border rounded-lg shadow-md mx-auto w-7/12">
-      <h2 className="text-center p-3 text-2xl text-white">Ingrese sus datos</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center">
-        <div className="inputs grid grid-cols-3 gap-4  ">
-          <input
-            value={name}
-            onChange={handleInputChange1}
-            className="text-center border rounded "
-            type="text"
-            required
-            placeholder="Nombre"
-          />
-          <input
-            value={document}
-            onChange={handleInputChange2}
-            className="text-center border rounded "
-            type="text"
-            required
-            placeholder="Cédula"
-          />
-          <input
-            value={occupation}
-            onChange={handleInputChange3}
-            className="text-center border rounded "
-            type="text"
-            required
-            placeholder="Ocupación"
-          />
-          <select required className=" border rounded" name="sex" value={sex} onChange={handleSelectChange}>
-            <option value="female">Mujer</option>
-            <option value="male">Hombre</option>
-          </select>
-
-          <div className="checkbox col-span-2">
-            <label className="text-white align-middle font-bold" htmlFor="age">
-              Marque la cajita si es mayor de 18 años
+    <div className="mt-5 bg-[#6b7be7f5] border rounded-lg shadow-md mx-auto w-10/12 p-5">
+      {/* <h2 className="text-white">Ingrese sus datos</h2> */}
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="inputs-container space-y-4">
+          <div className="name-box flex flex-col">
+            <label htmlFor="name" className="text-white font-bold text-sm">
+              Nombre
             </label>
-            <input className="scale-150 ml-5 align-middle" id="age" type="checkbox" onChange={handleInputChange4} />
+            <input
+              className="p-2"
+              id="name"
+              value={name}
+              onChange={handleInputChange1}
+              type="text"
+              required
+              placeholder="Nombre"
+            />
+          </div>
+          <div className="document-box flex flex-col">
+            <label htmlFor="document" className="text-white font-bold text-sm">
+              Cédula
+            </label>
+            <input
+              className="p-2"
+              id="document"
+              value={document}
+              onChange={handleInputChange2}
+              type="number"
+              min="1"
+              max="40999999"
+              required
+              placeholder="Cédula"
+            />
+          </div>
+          <div className="occupation-box flex flex-col">
+            <label htmlFor="occupation" className="text-white font-bold text-sm">
+              Ocupación
+            </label>
+            <input
+              className="p-2"
+              id="occupation"
+              value={occupation}
+              onChange={handleInputChange3}
+              type="text"
+              required
+              placeholder="Ocupación"
+            />
+          </div>
+          <div className="gender-box flex flex-col">
+            <label htmlFor="" className="text-white font-bold text-md text-center">
+              Seleccione su género
+            </label>
+            <div className="gender-options grid grid-cols-2" name="gender">
+              <div
+                onClick={() => handleSelectChange("female")}
+                className={`${
+                  gender === "female" ? "bg-yellow-400 text-white font-bold" : "bg-white"
+                } text-center p-2 `}
+              >
+                Femenino
+              </div>
+              <div
+                onClick={() => handleSelectChange("male")}
+                className={`${
+                  gender === "male" ? "bg-yellow-400 text-white font-bold" : "bg-white"
+                } bg-white border-l-2 border-gray-400 text-center p-2 `}
+              >
+                Masculino
+              </div>
+            </div>
+          </div>
+          {/* active:bg-yellow-400 active:text-white active:font-bold */}
+          <div className="age-box flex flex-col">
+            <label htmlFor="" className="text-white font-bold text-md text-center">
+              ¿Es mayor de edad?
+            </label>
+            <div className="age-options grid grid-cols-2" name="age">
+              <div
+                onClick={() => handleInputChange4("yes")}
+                className={`${isOld === "yes" ? "bg-yellow-400 text-white font-bold" : "bg-white"} text-center p-2 `}
+              >
+                Sí
+              </div>
+              <div
+                onClick={() => handleInputChange4("no")}
+                className={`${
+                  isOld === "no" ? "bg-yellow-400 text-white font-bold" : "bg-white"
+                } bg-white border-l-2 border-gray-400 text-center p-2 `}
+              >
+                No
+              </div>
+            </div>
           </div>
         </div>
         <button
           type="submit"
-          className="px-4 p-2 text-white font-bold  bg-[#EBC70C] hover:bg-[#EAB417] rounded m-4 transition duration-300"
+          className="px-4 p-2 text-white font-bold  bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
         >
           Generar Constancia
         </button>

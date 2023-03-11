@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const MyDocument = ({ name, document, sex, occupation, isOld }) => (
+const MyDocument = ({ name, document, gender, occupation, isOld }) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.header}>
@@ -60,13 +60,14 @@ const MyDocument = ({ name, document, sex, occupation, isOld }) => (
           Automotriz Oriental,C.A (Autorica), vía Carúpano-San José, parroquia Santa Catalina, municipio Bermúdez del
           estado Sucre; en nuestra condición de Voceras del Consejo Comunal del citado Sector, hacemos constar que
           conocemos de vista, trato y comunicación desde hace más de veinte (20) años,{" "}
-          {sex === "female" ? "a la" : "al"} {sex === "female" ? "ciudadana" : "ciudadano"} {name} ,{" "}
-          {sex === "female" ? "venezolana" : "venezolano"}, {isOld ? "mayor de edad" : "menor de edad"},{" "}
-          {sex === "female" ? "soltera" : "soltero"}, {occupation}, hábil en derecho, titular de la Cédula de Identidad
-          No.
-          {document} y {sex === "female" ? "domiciliada" : "domiciliado"} en el Callejón 9 de Abril, casa s/n de nuestro
-          {/* Sector y por el conocimiento que tenemos de {sex === "female" ? "ella" : "él"} damos fe de que es{" "}
-          {sex === "female" ? "una" : "un"} {sex === "female" ? "ciudadana" : "ciudadano"} de BUENA CONDUCTA. Constancia */}
+          {gender === "female" ? "a la" : "al"} {gender === "female" ? "ciudadana" : "ciudadano"} {name} ,{" "}
+          {gender === "female" ? "venezolana" : "venezolano"}, {isOld === "yes" ? "mayor de edad" : "menor de edad"},{" "}
+          {gender === "female" ? "soltera" : "soltero"}, {occupation}, hábil en derecho, titular de la Cédula de
+          Identidad No.
+          {document} y {gender === "female" ? "domiciliada" : "domiciliado"} en el Callejón 9 de Abril, casa s/n de
+          nuestro
+          {/* Sector y por el conocimiento que tenemos de {gender === "female" ? "ella" : "él"} damos fe de que es{" "}
+          {gender === "female" ? "una" : "un"} {gender === "female" ? "ciudadana" : "ciudadano"} de BUENA CONDUCTA. Constancia */}
           que expedimos a solicitud de la parte interesada en Carúpano,{" "}
           {wordDay === "primer" ? "al primer día" : `a los ${wordDay} días`} del mes de {wordMonth} de dos mil
           veintitrés. ({`${day}-${month}-${year}`}).

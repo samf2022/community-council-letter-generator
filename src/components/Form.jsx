@@ -80,14 +80,14 @@ const Form = ({ onSubmit }) => {
             required
             placeholder="Ocupación"
           />
-          <select className=" border rounded" name="sex" value={sex} onChange={handleSelectChange}>
+          <select required className=" border rounded" name="sex" value={sex} onChange={handleSelectChange}>
             <option value="female">Mujer</option>
             <option value="male">Hombre</option>
           </select>
 
           <div className="checkbox col-span-2">
             <label className="text-white align-middle font-bold" htmlFor="age">
-              ¿Usted es mayor de edad?
+              Marque la cajita si es mayor de 18 años
             </label>
             <input className="scale-150 ml-5 align-middle" id="age" type="checkbox" onChange={handleInputChange4} />
           </div>

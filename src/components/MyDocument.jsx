@@ -65,8 +65,8 @@ const MyDocument = ({ name, document, sex, occupation, isOld }) => (
           {sex === "female" ? "soltera" : "soltero"}, {occupation}, hábil en derecho, titular de la Cédula de Identidad
           No.
           {document} y {sex === "female" ? "domiciliada" : "domiciliado"} en el Callejón 9 de Abril, casa s/n de nuestro
-          Sector y por el conocimiento que tenemos de {sex === "female" ? "ella" : "él"} damos fe de que es{" "}
-          {sex === "female" ? "una" : "un"} {sex === "female" ? "ciudadana" : "ciudadano"} de BUENA CONDUCTA. Constancia
+          {/* Sector y por el conocimiento que tenemos de {sex === "female" ? "ella" : "él"} damos fe de que es{" "}
+          {sex === "female" ? "una" : "un"} {sex === "female" ? "ciudadana" : "ciudadano"} de BUENA CONDUCTA. Constancia */}
           que expedimos a solicitud de la parte interesada en Carúpano,{" "}
           {wordDay === "primer" ? "al primer día" : `a los ${wordDay} días`} del mes de {wordMonth} de dos mil
           veintitrés. ({`${day}-${month}-${year}`}).

@@ -1,15 +1,16 @@
 import React from "react";
 
-const Description = ({ onClose }) => {
+const Description = () => {
   return (
     <div className="relative w-7/12 mx-auto mt-7 bg-white px-6 py-3 leading-8 rounded-lg">
       <h1 className="text-3xl text-center">Instrucciones</h1>
-      <button
+      {/* <hr className="border-[.14rem] border-orange-300" /> */}
+      {/* <button
         onClick={() => onClose()}
         className="absolute top-1 right-2 bg-slate-400 rounded-full px-3 text-white hover:bg-slate-500 font-bold transition duration-300"
       >
         X
-      </button>
+      </button> */}
       <ul className="list-disc px-3">
         <li>Escriba su nombre completo tal como aparece en su cédula.</li>
         <li>El número de su cédula debe contener solo números. Ejemplo: 4935094</li>

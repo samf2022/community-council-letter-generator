@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const MyDocument = ({ name, document, sex }) => (
+const MyDocument = ({ name, document, sex, occupation, isOld }) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.header}>
@@ -61,8 +61,9 @@ const MyDocument = ({ name, document, sex }) => (
           estado Sucre; en nuestra condición de Voceras del Consejo Comunal del citado Sector, hacemos constar que
           conocemos de vista, trato y comunicación desde hace más de veinte (20) años,{" "}
           {sex === "female" ? "a la" : "al"} {sex === "female" ? "ciudadana" : "ciudadano"} {name} ,{" "}
-          {sex === "female" ? "venezolana" : "venezolano"}, mayor de edad, {sex === "female" ? "soltera" : "soltero"},
-          militar retirado, hábil en derecho, titular de la Cédula de Identidad No.
+          {sex === "female" ? "venezolana" : "venezolano"}, {isOld ? "mayor de edad" : "menor de edad"},{" "}
+          {sex === "female" ? "soltera" : "soltero"}, {occupation}, hábil en derecho, titular de la Cédula de Identidad
+          No.
           {document} y {sex === "female" ? "domiciliada" : "domiciliado"} en el Callejón 9 de Abril, casa s/n de nuestro
           Sector y por el conocimiento que tenemos de {sex === "female" ? "ella" : "él"} damos fe de que es{" "}
           {sex === "female" ? "una" : "un"} {sex === "female" ? "ciudadana" : "ciudadano"} de BUENA CONDUCTA. Constancia

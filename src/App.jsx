@@ -25,7 +25,7 @@ function App() {
       <Modal isOpen={isModalOpen}>
         <Description onClose={onCloseModal} />
       </Modal>
-      <h2 className="text-center font-serif text-4xl">Generador de constancias</h2>
+      <h2 className="text-center text-2xl mt-2 font-bold">Generador de constancias</h2>
 
       <Form onSubmit={handleSubmit} />
       <PDFViewer className="mx-auto mt-5" height="750px" width="70%">

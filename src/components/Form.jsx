@@ -108,7 +108,7 @@ const Form = ({ onSubmit }) => {
             <label htmlFor="" className="text-white font-bold text-md text-center">
               Seleccione su género
             </label>
-            <div className="gender-options grid grid-cols-2" name="gender">
+            <div className="gender-options grid grid-cols-2 gap-1" name="gender">
               <div
                 onClick={() => handleSelectChange("female")}
                 className={`${
@@ -121,7 +121,7 @@ const Form = ({ onSubmit }) => {
                 onClick={() => handleSelectChange("male")}
                 className={`${
                   gender === "male" ? "bg-yellow-400 text-white font-bold" : "bg-white"
-                } bg-white border-l-2 border-gray-400 text-center p-2 rounded hover:cursor-pointer`}
+                } border-gray-400 text-center p-2 rounded hover:cursor-pointer`}
               >
                 Masculino
               </div>
@@ -132,7 +132,7 @@ const Form = ({ onSubmit }) => {
             <label htmlFor="" className="text-white font-bold text-md text-center">
               ¿Es mayor de edad?
             </label>
-            <div className="age-options grid grid-cols-2" name="age">
+            <div className="age-options grid grid-cols-2 gap-1" name="age">
               <div
                 onClick={() => handleInputChange4("yes")}
                 className={`${
@@ -145,7 +145,7 @@ const Form = ({ onSubmit }) => {
                 onClick={() => handleInputChange4("no")}
                 className={`${
                   isOld === "no" ? "bg-yellow-400 text-white font-bold" : "bg-white"
-                } bg-white border-l-2 border-gray-400 text-center p-2 rounded hover:cursor-pointer`}
+                }  border-gray-400 text-center p-2 rounded hover:cursor-pointer`}
               >
                 No
               </div>

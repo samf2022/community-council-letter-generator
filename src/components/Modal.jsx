@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 
-const Modal = ({ children, isOpen, onClose }) => {
+const Modal = ({ children, isOpen }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {

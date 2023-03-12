@@ -57,16 +57,15 @@ const Form = ({ onSubmit }) => {
     setIsOld("");
   };
   return (
-    <div className="mt-5 bg-[#6b7be7f5] border rounded-lg shadow-md mx-auto w-10/12 p-5">
-      {/* <h2 className="text-white">Ingrese sus datos</h2> */}
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="mt-5 bg-gradient-to-r from-indigo-500 to-blue-500 border rounded-lg shadow-md mx-auto w-10/12 p-5">
+      <form onSubmit={handleSubmit} className="space-y-7">
         <div className="inputs-container space-y-4">
           <div className="name-box flex flex-col">
             <label htmlFor="name" className="text-white font-bold text-sm">
               Nombre
             </label>
             <input
-              className="p-2"
+              className="p-2 rounded"
               id="name"
               value={name}
               onChange={handleInputChange1}
@@ -80,7 +79,7 @@ const Form = ({ onSubmit }) => {
               Cédula
             </label>
             <input
-              className="p-2"
+              className="p-2 rounded"
               id="document"
               value={document}
               onChange={handleInputChange2}
@@ -96,7 +95,7 @@ const Form = ({ onSubmit }) => {
               Ocupación
             </label>
             <input
-              className="p-2"
+              className="p-2 rounded"
               id="occupation"
               value={occupation}
               onChange={handleInputChange3}
@@ -114,7 +113,7 @@ const Form = ({ onSubmit }) => {
                 onClick={() => handleSelectChange("female")}
                 className={`${
                   gender === "female" ? "bg-yellow-400 text-white font-bold" : "bg-white"
-                } text-center p-2 `}
+                } text-center p-2 rounded hover:cursor-pointer`}
               >
                 Femenino
               </div>
@@ -122,7 +121,7 @@ const Form = ({ onSubmit }) => {
                 onClick={() => handleSelectChange("male")}
                 className={`${
                   gender === "male" ? "bg-yellow-400 text-white font-bold" : "bg-white"
-                } bg-white border-l-2 border-gray-400 text-center p-2 `}
+                } bg-white border-l-2 border-gray-400 text-center p-2 rounded hover:cursor-pointer`}
               >
                 Masculino
               </div>
@@ -136,7 +135,9 @@ const Form = ({ onSubmit }) => {
             <div className="age-options grid grid-cols-2" name="age">
               <div
                 onClick={() => handleInputChange4("yes")}
-                className={`${isOld === "yes" ? "bg-yellow-400 text-white font-bold" : "bg-white"} text-center p-2 `}
+                className={`${
+                  isOld === "yes" ? "bg-yellow-400 text-white font-bold" : "bg-white"
+                } text-center p-2 rounded hover:cursor-pointer`}
               >
                 Sí
               </div>
@@ -144,7 +145,7 @@ const Form = ({ onSubmit }) => {
                 onClick={() => handleInputChange4("no")}
                 className={`${
                   isOld === "no" ? "bg-yellow-400 text-white font-bold" : "bg-white"
-                } bg-white border-l-2 border-gray-400 text-center p-2 `}
+                } bg-white border-l-2 border-gray-400 text-center p-2 rounded hover:cursor-pointer`}
               >
                 No
               </div>
@@ -153,7 +154,7 @@ const Form = ({ onSubmit }) => {
         </div>
         <button
           type="submit"
-          className="px-4 p-2 text-white font-bold  bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
+          className="px-4 p-2 text-white font-bold shadow-lg  bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
         >
           Generar Constancia
         </button>

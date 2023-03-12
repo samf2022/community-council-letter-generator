@@ -57,7 +57,7 @@ const Form = ({ onSubmit }) => {
     setIsOld("");
   };
   return (
-    <div className="mt-5 bg-gradient-to-r from-cyan-500 to-blue-500 border rounded-lg shadow-md mx-auto w-10/12 p-5">
+    <div className="mt-5 bg-gradient-to-r from-indigo-500 to-blue-500 border rounded-lg shadow-md mx-auto w-10/12 p-5">
       <form onSubmit={handleSubmit} className="space-y-7">
         <div className="inputs-container space-y-4">
           <div className="name-box flex flex-col">
@@ -113,7 +113,7 @@ const Form = ({ onSubmit }) => {
                 onClick={() => handleSelectChange("female")}
                 className={`${
                   gender === "female" ? "bg-yellow-400 text-white font-bold" : "bg-white"
-                } text-center p-2 rounded`}
+                } text-center p-2 rounded hover:cursor-pointer`}
               >
                 Femenino
               </div>
@@ -121,7 +121,7 @@ const Form = ({ onSubmit }) => {
                 onClick={() => handleSelectChange("male")}
                 className={`${
                   gender === "male" ? "bg-yellow-400 text-white font-bold" : "bg-white"
-                } bg-white border-l-2 border-gray-400 text-center p-2 rounded`}
+                } bg-white border-l-2 border-gray-400 text-center p-2 rounded hover:cursor-pointer`}
               >
                 Masculino
               </div>
@@ -137,7 +137,7 @@ const Form = ({ onSubmit }) => {
                 onClick={() => handleInputChange4("yes")}
                 className={`${
                   isOld === "yes" ? "bg-yellow-400 text-white font-bold" : "bg-white"
-                } text-center p-2 rounded`}
+                } text-center p-2 rounded hover:cursor-pointer`}
               >
                 Sí
               </div>
@@ -145,7 +145,7 @@ const Form = ({ onSubmit }) => {
                 onClick={() => handleInputChange4("no")}
                 className={`${
                   isOld === "no" ? "bg-yellow-400 text-white font-bold" : "bg-white"
-                } bg-white border-l-2 border-gray-400 text-center p-2 rounded`}
+                } bg-white border-l-2 border-gray-400 text-center p-2 rounded hover:cursor-pointer`}
               >
                 No
               </div>

@@ -71,7 +71,7 @@ const Form = ({ onSubmit }) => {
               onChange={handleInputChange1}
               type="text"
               required
-              placeholder="Nombre"
+              placeholder="Ingrese su nombre..."
             />
           </div>
           <div className="document-box flex flex-col">
@@ -87,7 +87,7 @@ const Form = ({ onSubmit }) => {
               min="1"
               max="40999999"
               required
-              placeholder="Cédula"
+              placeholder="Ingrese su cédula..."
             />
           </div>
           <div className="occupation-box flex flex-col">
@@ -101,7 +101,7 @@ const Form = ({ onSubmit }) => {
               onChange={handleInputChange3}
               type="text"
               required
-              placeholder="Ocupación"
+              placeholder="Ingrese su ocupación..."
             />
           </div>
           <div className="gender-box flex flex-col">

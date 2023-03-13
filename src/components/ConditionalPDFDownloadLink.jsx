@@ -5,7 +5,16 @@ import MyDocument from "./MyDocument";
 const buttonClassNames =
   "px-4 p-2 text-white font-bold shadow-lg bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full";
 
-const ConditionalPDFDownloadLink = ({ name, document, gender, occupation, isOld, street, civilStatus }) => {
+const ConditionalPDFDownloadLink = ({
+  name,
+  document,
+  gender,
+  occupation,
+  isOld,
+  street,
+  civilStatus,
+  houseNumber,
+}) => {
   const isFormIncomplete = !name || !document || !gender || !occupation || !isOld || !street || !civilStatus;
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

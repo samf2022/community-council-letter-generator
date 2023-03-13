@@ -104,9 +104,9 @@ const Form = ({ onSubmit }) => {
               gender === "female"
                 ? "bg-gradient-to-r from-pink-400 to-pink-600 text-white font-bold shadow-[inset_0_-1px_5px_rgba(0,0,0,0.6)] bottom-0.5"
                 : "bg-white"
-            } text-center p-4 rounded-tl-md  hover:cursor-pointer relative hover:bottom-0.5 hover:bg-gradient-to-r from-pink-400 to-pink-600 hover:text-white hover:font-bold transition duration-300`}
+            } text-center text-xl p-4 rounded-tl-md  hover:cursor-pointer relative hover:bottom-0.5 hover:bg-gradient-to-r from-pink-400 to-pink-600 hover:text-white hover:font-bold transition duration-300`}
           >
-            Femenino
+            👩
           </div>
           <div
             onClick={() => handleSelectChange("male")}
@@ -114,9 +114,9 @@ const Form = ({ onSubmit }) => {
               gender === "male"
                 ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold shadow-[inset_0_-1px_5px_rgba(0,0,0,0.6)] bottom-0.5"
                 : "bg-white"
-            }  rounded-tr-md text-center p-4 relative hover:cursor-pointer hover:bottom-0.5 hover:bg-gradient-to-r from-blue-500 to-blue-600 hover:text-white hover:font-bold transition duration-300`}
+            }  rounded-tr-md text-center text-xl p-4 relative hover:cursor-pointer hover:bottom-0.5 hover:bg-gradient-to-r from-blue-500 to-blue-600 hover:text-white hover:font-bold transition duration-300`}
           >
-            Masculino
+            👨
           </div>
         </div>
       </div>

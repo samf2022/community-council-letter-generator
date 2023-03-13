@@ -1,4 +1,6 @@
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useState } from "react";
+import MyDocument from "./MyDocument";
 
 const Form = ({ onSubmit }) => {
   const [name, setName] = useState("");
@@ -265,10 +267,45 @@ const Form = ({ onSubmit }) => {
         </div>
         <button
           type="submit"
-          className="px-4 p-2 text-white font-bold shadow-lg  bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
+          className=" hidden md:block px-4 p-2 text-white font-bold shadow-lg  bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
         >
           Generar Constancia
         </button>
+        <PDFDownloadLink
+          className="px-4 p-2 text-white font-bold shadow-lg  bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
+          document={
+            <MyDocument
+              name={name}
+              document={document}
+              gender={gender}
+              occupation={occupation}
+              isOld={isOld}
+              street={street}
+              civilStatus={civilStatus}
+              houseNumber={houseNumber}
+            />
+          }
+          fileName="test.pdf"
+        >
+          {({ blob, url, loading, error }) => (loading ? "Loading document..." : "Download now!")}
+        </PDFDownloadLink>
+        {/* <PDFDownloadLink
+          document={
+            <MyDocument
+              name={data.name}
+              document={formattedNumber}
+              gender={data.gender}
+              occupation={data.occupation}
+              isOld={data.isOld}
+              street={data.street}
+              civilStatus={data.civilStatus}
+              houseNumber={data.houseNumber}
+            />
+          }
+          fileName="test.pdf"
+        >
+          {({ blob, url, loading, error }) => (loading ? "Loading document..." : "Download now!")}
+        </PDFDownloadLink> */}
       </form>
     </div>
   );

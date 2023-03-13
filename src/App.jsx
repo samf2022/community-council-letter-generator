@@ -1,4 +1,4 @@
-import { PDFViewer } from "@react-pdf/renderer";
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
 import { useState } from "react";
 import Description from "./components/Description";
 import Form from "./components/Form";
@@ -28,7 +28,7 @@ function App() {
       <h2 className="text-center text-2xl pt-3 font-bold">Generador de constancias</h2>
 
       <Form onSubmit={handleSubmit} />
-      <PDFViewer className="mx-auto mt-5" height="750px" width="70%">
+      <PDFViewer className="mx-auto mt-5 hidden md:block" height="750px" width="70%">
         <MyDocument
           name={data.name}
           document={formattedNumber}
@@ -40,6 +40,23 @@ function App() {
           houseNumber={data.houseNumber}
         />
       </PDFViewer>
+      {/* <PDFDownloadLink
+        document={
+          <MyDocument
+            name={data.name}
+            document={formattedNumber}
+            gender={data.gender}
+            occupation={data.occupation}
+            isOld={data.isOld}
+            street={data.street}
+            civilStatus={data.civilStatus}
+            houseNumber={data.houseNumber}
+          />
+        }
+        fileName="test.pdf"
+      >
+        {({ blob, url, loading, error }) => (loading ? "Loading document..." : "Download now!")}
+      </PDFDownloadLink> */}
     </div>
   );
 }

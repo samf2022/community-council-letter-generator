@@ -94,7 +94,7 @@ const Form = ({ onSubmit }) => {
           : gender === "male"
           ? "bg-gradient-to-r from-cyan-500 to-blue-500"
           : "bg-gray-500"
-      } mt-5 rounded-md shadow-md mx-auto w-10/12 bg-white`}
+      } mt-5 rounded-md shadow-md mx-auto w-10/12 `}
     >
       <div className="gender-box flex flex-col">
         <div className="gender-options grid grid-cols-2 gap-0.5" name="gender">

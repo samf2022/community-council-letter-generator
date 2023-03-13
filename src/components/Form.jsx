@@ -273,32 +273,70 @@ const Form = ({ onSubmit }) => {
             />
           </div>
         </div>
-        <button
+
+        {windowWidth <= 384 ? (
+          <div
+            className="px-4 p-2 text-white text-center font-bold shadow-lg bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
+            disabled={!name || !document || !gender || !occupation || !isOld || !street || !civilStatus}
+          >
+            {!name || !document || !gender || !occupation || !isOld || !street || !civilStatus ? (
+              <span>Por favor, termine de rellenar sus datos</span>
+            ) : (
+              <PDFDownloadLink
+                className=""
+                document={
+                  <MyDocument
+                    name={name}
+                    document={document}
+                    gender={gender}
+                    occupation={occupation}
+                    isOld={isOld}
+                    street={street}
+                    civilStatus={civilStatus}
+                    houseNumber={houseNumber}
+                  />
+                }
+                fileName="test.pdf"
+              >
+                {({ blob, url, loading, error }) => (loading ? "Cargando..." : "Descargar constancia")}
+              </PDFDownloadLink>
+            )}
+          </div>
+        ) : (
+          <button
+            type="submit"
+            className="px-4 p-2 text-white font-bold shadow-lg bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
+          >
+            Generar constancia
+          </button>
+        )}
+
+        {/* <button
           type="submit"
           className="px-4 p-2 text-white font-bold shadow-lg bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
-        >
-          {windowWidth <= 384 ? (
-            <PDFDownloadLink
-              document={
-                <MyDocument
-                  name={name}
-                  document={document}
-                  gender={gender}
-                  occupation={occupation}
-                  isOld={isOld}
-                  street={street}
-                  civilStatus={civilStatus}
-                  houseNumber={houseNumber}
-                />
-              }
-              fileName="test.pdf"
-            >
-              {({ blob, url, loading, error }) => (loading ? "Loading document..." : "Download now!")}
-            </PDFDownloadLink>
-          ) : (
-            "Generar Constancia"
-          )}
-        </button>
+        ></button> */}
+
+        {/* {windowWidth <= 384 ? (
+          <PDFDownloadLink
+            document={
+              <MyDocument
+                name={name}
+                document={document}
+                gender={gender}
+                occupation={occupation}
+                isOld={isOld}
+                street={street}
+                civilStatus={civilStatus}
+                houseNumber={houseNumber}
+              />
+            }
+            fileName="test.pdf"
+          >
+            {({ blob, url, loading, error }) => (loading ? "Loading document..." : "Download now!")}
+          </PDFDownloadLink>
+        ) : (
+          "Generar Constancia"
+        )} */}
       </form>
     </div>
   );

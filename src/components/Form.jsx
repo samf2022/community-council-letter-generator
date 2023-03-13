@@ -1,6 +1,5 @@
-import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useState, useEffect } from "react";
-import MyDocument from "./MyDocument";
+import ConditionalPDFDownloadLink from "./ConditionalPDFDownloadLink";
 
 const Form = ({ onSubmit }) => {
   const [name, setName] = useState("");
@@ -11,14 +10,6 @@ const Form = ({ onSubmit }) => {
   const [street, setStreet] = useState("");
   const [houseNumber, sethouseNumber] = useState("");
   const [civilStatus, setCivilStatus] = useState("");
-
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const handleInputChange1 = ({ target }) => {
     const value = target.value.toUpperCase();
@@ -274,69 +265,16 @@ const Form = ({ onSubmit }) => {
           </div>
         </div>
 
-        {windowWidth <= 384 ? (
-          <div
-            className="px-4 p-2 text-white text-center font-bold shadow-lg bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
-            disabled={!name || !document || !gender || !occupation || !isOld || !street || !civilStatus}
-          >
-            {!name || !document || !gender || !occupation || !isOld || !street || !civilStatus ? (
-              <span>Por favor, termine de rellenar sus datos</span>
-            ) : (
-              <PDFDownloadLink
-                className=""
-                document={
-                  <MyDocument
-                    name={name}
-                    document={document}
-                    gender={gender}
-                    occupation={occupation}
-                    isOld={isOld}
-                    street={street}
-                    civilStatus={civilStatus}
-                    houseNumber={houseNumber}
-                  />
-                }
-                fileName="test.pdf"
-              >
-                {({ blob, url, loading, error }) => (loading ? "Cargando..." : "Descargar constancia")}
-              </PDFDownloadLink>
-            )}
-          </div>
-        ) : (
-          <button
-            type="submit"
-            className="px-4 p-2 text-white font-bold shadow-lg bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
-          >
-            Generar constancia
-          </button>
-        )}
-
-        {/* <button
-          type="submit"
-          className="px-4 p-2 text-white font-bold shadow-lg bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
-        ></button> */}
-
-        {/* {windowWidth <= 384 ? (
-          <PDFDownloadLink
-            document={
-              <MyDocument
-                name={name}
-                document={document}
-                gender={gender}
-                occupation={occupation}
-                isOld={isOld}
-                street={street}
-                civilStatus={civilStatus}
-                houseNumber={houseNumber}
-              />
-            }
-            fileName="test.pdf"
-          >
-            {({ blob, url, loading, error }) => (loading ? "Loading document..." : "Download now!")}
-          </PDFDownloadLink>
-        ) : (
-          "Generar Constancia"
-        )} */}
+        <ConditionalPDFDownloadLink
+          name={name}
+          document={document}
+          gender={gender}
+          occupation={occupation}
+          isOld={isOld}
+          street={street}
+          civilStatus={civilStatus}
+          houseNumber={houseNumber}
+        />
       </form>
     </div>
   );

@@ -7,7 +7,7 @@ const Form = ({ onSubmit }) => {
   const [isOld, setIsOld] = useState("");
   const [gender, setGender] = useState("");
   const [street, setStreet] = useState("");
-  const [houseNumber, sethouseNumber] = useState("S/N");
+  const [houseNumber, sethouseNumber] = useState("");
   const [civilStatus, setCivilStatus] = useState("");
 
   const handleInputChange1 = ({ target }) => {

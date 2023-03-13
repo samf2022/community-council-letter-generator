@@ -1,5 +1,3 @@
-import React from "react";
-
 const Description = () => {
   return (
     <div className="relative w-7/12 mx-auto mt-7 bg-white px-6 py-3 leading-8 rounded-lg">

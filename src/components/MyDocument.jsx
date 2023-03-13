@@ -1,4 +1,3 @@
-import React from "react";
 import { Page, Text, View, Image, Document, StyleSheet } from "@react-pdf/renderer";
 import logo from "../assets/community-council-logo.png";
 import getDateInfo from "../utils/getDateInfo";

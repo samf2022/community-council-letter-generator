@@ -35,6 +35,9 @@ function App() {
           gender={data.gender}
           occupation={data.occupation}
           isOld={data.isOld}
+          street={data.street}
+          civilStatus={data.civilStatus}
+          houseNumber={data.houseNumber}
         />
       </PDFViewer>
     </div>

@@ -32,8 +32,26 @@ const Form = ({ onSubmit }) => {
     setIsOld(value);
   };
 
+  const handleInputChange5 = ({ target }) => {
+    const value = target.value;
+    setStreet(value);
+  };
+
+  const handleInputChange6 = ({ target }) => {
+    const value = target.value;
+
+    if (value.length <= 3) {
+      sethouseNumber(value);
+    }
+  };
+
   const handleSelectChange = (value) => {
     setGender(value);
+    setCivilStatus("");
+  };
+
+  const handleCivilStatus = (value) => {
+    setCivilStatus(value);
   };
 
   const handleSubmit = (event) => {
@@ -53,6 +71,9 @@ const Form = ({ onSubmit }) => {
       gender,
       occupation,
       isOld,
+      street,
+      houseNumber,
+      civilStatus,
     });
     // Reiniciar los inputs
     setName("");
@@ -60,12 +81,48 @@ const Form = ({ onSubmit }) => {
     setOccupation("");
     setGender("");
     setIsOld("");
+    setStreet("");
+    sethouseNumber("");
+    setCivilStatus("");
   };
+
   return (
-    <div className="mt-5 bg-gradient-to-r from-indigo-500 to-blue-500 border rounded-lg shadow-md mx-auto w-10/12 p-5">
-      <form onSubmit={handleSubmit} className="space-y-7">
+    <div
+      className={`${
+        gender === "female"
+          ? "bg-gradient-to-r from-fuchsia-500 to-pink-500"
+          : gender === "male"
+          ? "bg-gradient-to-r from-cyan-500 to-blue-500"
+          : "bg-gray-500"
+      } mt-5 rounded-md shadow-md mx-auto w-10/12 bg-white`}
+    >
+      <div className="gender-box flex flex-col">
+        <div className="gender-options grid grid-cols-2 gap-0.5" name="gender">
+          <div
+            onClick={() => handleSelectChange("female")}
+            className={`${
+              gender === "female"
+                ? "bg-gradient-to-r from-pink-400 to-pink-600 text-white font-bold shadow-[inset_0_-1px_5px_rgba(0,0,0,0.6)] bottom-0.5"
+                : "bg-white"
+            } text-center p-4 rounded-tl-md  hover:cursor-pointer relative hover:bottom-0.5 hover:bg-gradient-to-r from-pink-400 to-pink-600 hover:text-white hover:font-bold transition duration-300`}
+          >
+            Femenino
+          </div>
+          <div
+            onClick={() => handleSelectChange("male")}
+            className={`${
+              gender === "male"
+                ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold shadow-[inset_0_-1px_5px_rgba(0,0,0,0.6)] bottom-0.5"
+                : "bg-white"
+            }  rounded-tr-md text-center p-4 relative hover:cursor-pointer hover:bottom-0.5 hover:bg-gradient-to-r from-blue-500 to-blue-600 hover:text-white hover:font-bold transition duration-300`}
+          >
+            Masculino
+          </div>
+        </div>
+      </div>
+      <form onSubmit={handleSubmit} className="space-y-7 p-4">
         <div className="inputs-container space-y-4">
-          <p className="text-white font-bold border-b-2 text-center border-gray-300 text-lg pb-1">Datos personales</p>
+          <p className="text-white font-bold border-b-2 text-center border-gray-300 text-xl pb-1">Datos personales</p>
 
           <div className="name-box flex flex-col">
             <label htmlFor="name" className="text-white font-bold text-sm">
@@ -118,53 +175,33 @@ const Form = ({ onSubmit }) => {
             </label>
             <div className="civilStatus-options grid grid-cols-3 gap-2" name="civilStatus">
               <div
-                onClick={() => handleSelectChange("female")}
+                onClick={() => handleCivilStatus(gender == "female" ? "soltera" : "soltero")}
                 className={`${
-                  civilStatus === "female" ? "bg-yellow-400 text-white font-bold" : "bg-white"
+                  civilStatus === "soltera" || civilStatus === "soltero"
+                    ? "bg-yellow-400 text-white font-bold"
+                    : "bg-white"
                 } text-center p-2 rounded hover:cursor-pointer`}
               >
-                Soltero
+                {gender === "female" ? "Soltera" : "Soltero"}
               </div>
               <div
-                onClick={() => handleSelectChange("male")}
+                onClick={() => handleCivilStatus(gender === "female" ? "casada" : "casado")}
                 className={`${
-                  civilStatus === "male" ? "bg-yellow-400 text-white font-bold" : "bg-white"
+                  civilStatus === "casada" || civilStatus === "casado"
+                    ? "bg-yellow-400 text-white font-bold"
+                    : "bg-white"
                 } border-gray-400 text-center p-2 rounded hover:cursor-pointer`}
               >
-                Casado
+                {gender === "female" ? "Casada" : "Casado"}
               </div>
 
               <div
-                onClick={() => handleSelectChange("male")}
+                onClick={() => handleCivilStatus(gender === "female" ? "viuda" : "viudo")}
                 className={`${
-                  civilStatus === "male" ? "bg-yellow-400 text-white font-bold" : "bg-white"
+                  civilStatus === "viuda" || civilStatus === "viudo" ? "bg-yellow-400 text-white font-bold" : "bg-white"
                 } border-gray-400 text-center p-2 rounded hover:cursor-pointer`}
               >
-                Viudo
-              </div>
-            </div>
-          </div>
-
-          <div className="gender-box flex flex-col">
-            <label htmlFor="" className="text-white font-bold text-md text-center">
-              Seleccione su género
-            </label>
-            <div className="gender-options grid grid-cols-2 gap-2" name="gender">
-              <div
-                onClick={() => handleSelectChange("female")}
-                className={`${
-                  gender === "female" ? "bg-yellow-400 text-white font-bold" : "bg-white"
-                } text-center p-2 rounded hover:cursor-pointer`}
-              >
-                Femenino
-              </div>
-              <div
-                onClick={() => handleSelectChange("male")}
-                className={`${
-                  gender === "male" ? "bg-yellow-400 text-white font-bold" : "bg-white"
-                } border-gray-400 text-center p-2 rounded hover:cursor-pointer`}
-              >
-                Masculino
+                {gender === "female" ? "Viuda" : "Viudo"}
               </div>
             </div>
           </div>
@@ -192,52 +229,37 @@ const Form = ({ onSubmit }) => {
               </div>
             </div>
           </div>
-          <p className="text-white font-bold border-b-2 text-center border-gray-300 text-lg pt-2 pb-1">
-            Datos de dirección
+          <p className="text-white font-bold border-b-2 text-center border-gray-300 text-xl pt-2 pb-1">
+            Datos de domicilio
           </p>
 
-          <div className="name-box flex flex-col">
-            <label htmlFor="name" className="text-white font-bold text-sm">
+          <div className="street-box flex flex-col">
+            <label htmlFor="street" className="text-white font-bold text-sm">
               Nombre de la calle
             </label>
             <input
               className="p-2 rounded"
-              id="name"
-              value={name}
-              onChange={handleInputChange1}
+              id="street"
+              value={street}
+              onChange={handleInputChange5}
               type="text"
               required
               placeholder="Ingrese el nombre de la calle..."
             />
           </div>
-          <div className="document-box flex flex-col">
-            <label htmlFor="document" className="text-white font-bold text-sm flex justify-between">
+          <div className="houseNumber-box flex flex-col">
+            <label htmlFor="houseNumber" className="text-white font-bold text-sm flex justify-between">
               <span>N° de casa</span>
-              <span className="text-gray-300">(Opcional)</span>
+              <span className="text-gray-100">(Opcional)</span>
             </label>
             <input
               className="p-2 rounded"
-              id="document"
-              value={document}
-              onChange={handleInputChange2}
+              id="houseNumber"
+              value={houseNumber}
+              onChange={handleInputChange6}
               type="number"
               min="1"
-              max="40000000"
-              placeholder="Ingrese el número de la casa..."
-            />
-          </div>
-          <div className="occupation-box flex flex-col">
-            <label htmlFor="occupation" className="text-white font-bold text-sm">
-              Ocupación
-            </label>
-            <input
-              className="p-2 rounded"
-              id="occupation"
-              value={occupation}
-              onChange={handleInputChange3}
-              type="text"
-              required
-              placeholder="Ingrese su ocupación..."
+              max="500"
             />
           </div>
         </div>

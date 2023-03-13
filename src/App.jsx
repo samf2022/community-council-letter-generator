@@ -23,7 +23,7 @@ function App() {
     // The onClick event on the parent div is to close the modal when clicking anywhere on the page.
     <div className="bg-gradient-to-r from-blue-300 via-green-200 to-yellow-300" onClick={onCloseModal}>
       <Modal isOpen={isModalOpen}>
-        <Description onClose={onCloseModal} />
+        <Description />
       </Modal>
       <h2 className="text-center text-2xl pt-3 font-bold">Generador de constancias</h2>
 
@@ -35,6 +35,9 @@ function App() {
           gender={data.gender}
           occupation={data.occupation}
           isOld={data.isOld}
+          street={data.street}
+          civilStatus={data.civilStatus}
+          houseNumber={data.houseNumber}
         />
       </PDFViewer>
     </div>

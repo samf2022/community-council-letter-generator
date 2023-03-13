@@ -1,4 +1,3 @@
-import React from "react";
 import { Page, Text, View, Image, Document, StyleSheet } from "@react-pdf/renderer";
 import logo from "../assets/community-council-logo.png";
 import getDateInfo from "../utils/getDateInfo";
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const MyDocument = ({ name, document, gender, occupation, isOld }) => (
+const MyDocument = ({ name, document, gender, occupation, isOld, street, civilStatus, houseNumber }) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.header}>
@@ -62,10 +61,9 @@ const MyDocument = ({ name, document, gender, occupation, isOld }) => (
           conocemos de vista, trato y comunicación desde hace más de veinte (20) años,{" "}
           {gender === "female" ? "a la" : "al"} {gender === "female" ? "ciudadana" : "ciudadano"} {name} ,{" "}
           {gender === "female" ? "venezolana" : "venezolano"}, {isOld === "yes" ? "mayor de edad" : "menor de edad"},{" "}
-          {gender === "female" ? "soltera" : "soltero"}, {occupation}, hábil en derecho, titular de la Cédula de
-          Identidad No.
-          {document} y {gender === "female" ? "domiciliada" : "domiciliado"} en el Callejón 9 de Abril, casa s/n de
-          nuestro
+          {civilStatus}, {occupation}, hábil en derecho, titular de la Cédula de Identidad No.
+          {document} y {gender === "female" ? "domiciliada" : "domiciliado"} en calle {street}, casa{" "}
+          {houseNumber === "" ? "S/N" : `N° ${houseNumber}`} de nuestro Sector. Constancia
           {/* Sector y por el conocimiento que tenemos de {gender === "female" ? "ella" : "él"} damos fe de que es{" "}
           {gender === "female" ? "una" : "un"} {gender === "female" ? "ciudadana" : "ciudadano"} de BUENA CONDUCTA. Constancia */}
           que expedimos a solicitud de la parte interesada en Carúpano,{" "}

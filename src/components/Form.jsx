@@ -1,5 +1,5 @@
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MyDocument from "./MyDocument";
 
 const Form = ({ onSubmit }) => {
@@ -11,6 +11,14 @@ const Form = ({ onSubmit }) => {
   const [street, setStreet] = useState("");
   const [houseNumber, sethouseNumber] = useState("");
   const [civilStatus, setCivilStatus] = useState("");
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleInputChange1 = ({ target }) => {
     const value = target.value.toUpperCase();
@@ -267,45 +275,30 @@ const Form = ({ onSubmit }) => {
         </div>
         <button
           type="submit"
-          className=" hidden md:block px-4 p-2 text-white font-bold shadow-lg  bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
+          className="px-4 p-2 text-white font-bold shadow-lg bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
         >
-          Generar Constancia
+          {windowWidth <= 384 ? (
+            <PDFDownloadLink
+              document={
+                <MyDocument
+                  name={name}
+                  document={document}
+                  gender={gender}
+                  occupation={occupation}
+                  isOld={isOld}
+                  street={street}
+                  civilStatus={civilStatus}
+                  houseNumber={houseNumber}
+                />
+              }
+              fileName="test.pdf"
+            >
+              {({ blob, url, loading, error }) => (loading ? "Loading document..." : "Download now!")}
+            </PDFDownloadLink>
+          ) : (
+            "Generar Constancia"
+          )}
         </button>
-        <PDFDownloadLink
-          className="px-4 p-2 text-white font-bold shadow-lg  bg-[#EBC70C] hover:bg-[#EAB417] rounded transition duration-300 w-full"
-          document={
-            <MyDocument
-              name={name}
-              document={document}
-              gender={gender}
-              occupation={occupation}
-              isOld={isOld}
-              street={street}
-              civilStatus={civilStatus}
-              houseNumber={houseNumber}
-            />
-          }
-          fileName="test.pdf"
-        >
-          {({ blob, url, loading, error }) => (loading ? "Loading document..." : "Download now!")}
-        </PDFDownloadLink>
-        {/* <PDFDownloadLink
-          document={
-            <MyDocument
-              name={data.name}
-              document={formattedNumber}
-              gender={data.gender}
-              occupation={data.occupation}
-              isOld={data.isOld}
-              street={data.street}
-              civilStatus={data.civilStatus}
-              houseNumber={data.houseNumber}
-            />
-          }
-          fileName="test.pdf"
-        >
-          {({ blob, url, loading, error }) => (loading ? "Loading document..." : "Download now!")}
-        </PDFDownloadLink> */}
       </form>
     </div>
   );
